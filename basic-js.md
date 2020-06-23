@@ -336,9 +336,9 @@ const all (promiseList) {
                 errFlag =  true;
                 errList[i] = err;
             })
-            if (count === promiseList.length) {
-                errFlag ? reject(errList) : resolve(returnList)
-            }
+        }
+        if (count === promiseList.length) {
+            errFlag ? reject(errList) : resolve(returnList)
         }
     }
 }
