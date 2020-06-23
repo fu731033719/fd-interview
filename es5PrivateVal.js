@@ -1,21 +1,33 @@
-// 闭包实现私有变量
-function Shape() {
-    // 私有变量集
-    const this$ = {};
+// var person = (function () {
+//     var age = 25
+//     return {
+//         name: 'Lee',
+//         getAge: function () {
+//             return age
+//         },
+//         setAge: function () {
+//             age++
+//         }
+//     }
+// }());
+// console.log(person.name) // Lee
+// console.log(person.getAge()) // 25
+// person.age = 100 // hack try...
+// console.log(person.getAge()) // 25
 
-    class Shape {
-        constructor(width, height) {
-            this$.width = width;
-            this$.height = height;
-        }
-
-        get area() {
-            return this$.width * this$.height;
-        }
+function Person(name) {
+    this.name = name
+    let age = 18
+    this.getAge = function () {
+        return age
     }
-
-    return new Shape(...arguments);
+    this.setAge = function () {
+        age++
+    }
 }
-
-const square = new Shape(10, 10);
-console.log(square.area);  // 100
+var person = new Person('Lee')
+console.log(person.name) // Lee
+console.log(person.getAge()) // 18
+person.age = 100 // hack try...
+Person.age = 100 // hack try...
+console.log(person.getAge()) // 18
