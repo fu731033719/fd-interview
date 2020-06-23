@@ -1,9 +1,4 @@
-/**
-*
-* @param fn {Function}   实际要执行的函数
-* @param threshhold {Number}  执行间隔，单位是毫秒（ms）
-* @return {Function}     返回一个“节流”函数
-*/
+
 function throttle(fn, threshhold) {
     var last
     var timer
